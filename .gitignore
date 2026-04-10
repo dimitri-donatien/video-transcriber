@@ -234,4 +234,4 @@ __marimo__/
 *.tar
 *.gz
 *.7z
-transcript_en.txt
+transcript_module_*.txt
