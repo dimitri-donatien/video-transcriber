@@ -1,0 +1,5 @@
+# requirements.txt
+openai-whisper
+moviepy
+click
+rich
