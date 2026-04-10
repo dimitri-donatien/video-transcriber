@@ -90,7 +90,7 @@ Suis les instructions de la section [Note sur FFmpeg](#️-note-sur-ffmpeg) ci-d
 
 ---
 
-## 🎯 Utilisation
+## Utilisation
 
 ### Commande de base
 
@@ -140,7 +140,7 @@ python main.py models
 
 ---
 
-## 🧠 Modèles Whisper
+## Modèles Whisper
 
 | Modèle | Taille | Vitesse | Précision | VRAM requise |
 |--------|--------|---------|-----------|--------------|
@@ -154,7 +154,7 @@ python main.py models
 
 ---
 
-## 📁 Structure du projet
+## Structure du projet
 
 ```
 video-transcriber/
@@ -167,7 +167,7 @@ video-transcriber/
 
 ---
 
-## 📦 Dépendances
+## Dépendances
 
 ```txt
 openai-whisper
@@ -206,7 +206,7 @@ Ce projet est sous licence **MIT**. Voir le fichier [LICENSE](LICENSE) pour plus
 
 ---
 
-## 👤 Auteur
+## Auteur
 
 Fait avec ❤️ par **[dimitri-donatien](https://gitlab.com/dimitri-donatien)**
 
