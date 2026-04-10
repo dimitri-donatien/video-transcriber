@@ -1,7 +1,8 @@
 import os
 import tempfile
+import subprocess
 from pathlib import Path
-from moviepy import VideoFileClip
+import imageio_ffmpeg
 
 
 class AudioExtractor:
@@ -28,9 +29,28 @@ class AudioExtractor:
             output_path = tmp.name
             tmp.close()
 
-        with VideoFileClip(str(self.video_path)) as video:
-            if video.audio is None:
-                raise ValueError("La vidéo ne contient pas de piste audio.")
-            video.audio.write_audiofile(output_path)
+        ffmpeg_exe = imageio_ffmpeg.get_ffmpeg_exe()
+
+        command = [
+            ffmpeg_exe,
+            "-y",
+            "-i", str(self.video_path.resolve()),
+            "-vn",
+            "-acodec", "pcm_s16le",
+            "-ar", "16000",
+            "-ac", "1",
+            output_path
+        ]
+
+        result = subprocess.run(
+            command,
+            stdout=subprocess.PIPE,
+            stderr=subprocess.PIPE
+        )
+
+        if result.returncode != 0:
+            raise RuntimeError(
+                f"Erreur FFmpeg :\n{result.stderr.decode('utf-8', errors='ignore')}"
+            )
 
         return output_path
